@@ -1,2 +1,0 @@
-# wdjavascript-
-练习
