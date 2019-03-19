@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 300px;
+            height: 300px;
+            background: rgb(33, 33, 22);
+            margin: 100px auto;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+</body>
+
+</html>
+<script>
+    var oDiv = document.getElementsByTagName("div")[0];
+    function radom(a, b) {
+        return parseInt((Math.random() * b - a + 1) + a);
+    }
+    // console.log(radom(0,255));
+
+    // console.log(r + " " + g + " " + b);
+    oDiv.onclick = function () {
+        var r = radom(0, 255);
+        var g = radom(0, 255);
+        var b = radom(0, 255);
+        this.style.background = "rgb(" + r + "," + g + "," + b + ")";
+    }
+</script>

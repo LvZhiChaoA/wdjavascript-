@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div,ul,h5,p{margin: 0;padding: 0;list-style-type: none;}
+        ul li{
+            width: 100px;
+            border: 1px solid black;
+            text-align: center;
+            line-height: 100px;
+            float: left;
+            margin: 40px;
+            cursor: pointer;
+        }
+        ul li.active{
+            background: palegreen;
+            color: purple;
+            font-size: 20px;
+            border: 1px solid purple;
+        }
+        div{
+            width: 95%;
+            overflow: hidden;
+            margin: 0 auto;
+            border: 1px solid black;
+        }
+        div h5{
+            padding: 10px 20px;
+            border-bottom: 1px solid black;
+            font-size: 20px;
+        }
+        div p{
+            margin: 20px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+       <ul>
+           <li class="active">第1月</li>
+           <li>第2月</li>
+           <li>第3月</li>
+           <li>第4月</li>
+           <li>第5月</li>
+           <li>第6月</li>
+           <li>第7月</li>
+           <li>第8月</li>
+           <li>第9月</li>
+           <li>第10月</li>
+           <li>第11月</li>
+           <li>第12月</li>
+       </ul>
+       <div>
+            <h5>显示日期为1月的内容</h5>
+            <p>元旦：1月1日至3日放假三天。</p>
+       </div>
+</body>
+</html>
+<script>
+     var oArray = [
+        "元旦：1月1日至3日放假三天。",
+        "春节：2月2日至8日放假7天。",
+        "妇女节：3月8日妇女节，与我无关。",
+        "清明节：4月3日至5日放假3天",
+        "劳动节：4月30日至5月2日放假3天。",
+        "端午节：6月4日至6日放假3天。",
+        "小暑：7月7日小暑。不放假。",
+        "七夕节：8月6日七夕节。不放假。",
+        "中秋节：9月10日至12日放假3天。",
+        "国庆节：10月1日至7日放假7天。",
+        "立冬：11月8日立冬。不放假。",
+        "艾滋病日:12月1日<br />废除奴隶制国际日:12月2日。"
+    ];
+    var oLi = document.getElementsByTagName("li");
+    var oDiv = document.getElementsByTagName("div")[0];
+    var oH5 = oDiv.getElementsByTagName("h5")[0];
+    var oP = oDiv.getElementsByTagName("p")[0];
+    for(var i=0;i<oLi.length;i++){
+        oLi[i].index=i;
+        oLi[i].onmousemove=function(){
+            for(var i=0;i<oLi.length;i++){
+                oLi[i].className="";
+            }
+            this.className="active";
+            oH5.innerHTML="显示日期为"+(this.index+1)+"月的内容";
+            oP.innerHTML=oArray[this.index];
+        }
+    }
+</script>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div,ul,li,p{margin: 0;padding: 0;list-style-type: none;}
+        #tab{
+            width: 500px;
+            overflow: hidden;
+            margin: 100px auto 0;
+            border: 1px solid black;
+        }
+        #tab ul li{
+            width: 33.33333%;
+            float: left;
+            text-align: center;
+            line-height: 35px;
+            background: turquoise;
+            cursor: pointer;
+        }
+        #tab ul li.active{
+            background: red;
+            color: turquoise;
+        }
+        #odiv{
+            width: 500px;
+            text-align: center;
+            line-height: 200px;
+            border: 1px solid black;
+            border-top: 0;
+            background: turquoise;
+            margin: 0 auto;
+            color: red;
+            font-size: 50px;
+        }
+        #odiv p{
+            display: none;
+        }
+        #odiv p.octive{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="tab">
+        <ul>
+            <li class="active">第一个</li>
+            <li>第二个</li>
+            <li>第三个</li>
+        </ul>
+    </div>
+    <div id="odiv">
+        <p class="octive">111</p>
+        <p>222</p>
+        <p>333</p>
+    </div>
+</body>
+<script>
+    var oTab = document.getElementById("tab");
+    var oLi = oTab.getElementsByTagName("li");
+    var oDiv = document.getElementById("odiv");
+    var oP = oDiv.getElementsByTagName("p");
+    for(var i=0;i<oLi.length;i++){
+        oLi[i].index=i;
+        oLi[i].onclick=function(){
+            for(var i=0;i<oLi.length;i++){
+                oLi[i].className="";
+                oP[i].className="";
+            }
+            this.className="active";
+            oP[this.index].className="octive";
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            /* background: red; */
+            text-align: center;
+            line-height: 100px;
+            font-size: 50px;
+        }
+        p{
+            font-size: 30px;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <input type="button" value="开始" class="btn">
+    <input type="button" value="结束" class="btn">
+    <p></p>
+</body>
+
+</html>
+<script>
+    var oDiv = document.getElementsByTagName("div");
+    var oBtn = document.getElementsByClassName("btn");
+    var oP = document.getElementsByTagName("p")[0];
+    // var Random = parseInt((Math.random() * 6) + 1);
+    // console.log(Random);
+    var timer = null;
+
+    function radom(a, b) {
+        var sum = b - a + 1;
+        return Math.floor(Math.random()*sum+a);
+    }
+
+    oBtn[0].onclick = function () {
+        clearTimeout(timer);
+        timer = setInterval(function () {
+            oDiv[0].innerText = radom(1,6);
+        }, 100)
+    }
+    oBtn[1].onclick = function () {
+        clearInterval(timer);
+        if(oDiv[0].innerHTML>3){
+            oP.innerHTML="大";
+        }else{
+            oP.innerHTML="小";
+        }
+    }
+</script>

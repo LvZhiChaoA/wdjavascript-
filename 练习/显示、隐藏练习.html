@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html,
+        body,
+        div,
+        ul,
+        li,
+        a {
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 150px;
+            border: 1px solid black;
+            text-align: center;
+            background: palegreen;
+            line-height: 35px;
+            cursor: pointer;
+            border-radius: 10px;
+            margin: 40px 46% 0;
+            font-size: 20px;
+            background: url(img/ico.gif) no-repeat 93%  18px;
+        }
+        ul {
+            width: 300px;
+            overflow: hidden;
+            border: 1px solid black;
+            margin: 10px auto;
+            list-style-type: none;
+            display: block;
+        }
+        ul li{
+            line-height: 35px;
+            margin-left: 10px;
+        }
+        ul li a{
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="odiv">显示/隐藏</div>
+    <ul>
+        <li><a href="javascript:;">玩家之徒 - 蔡依林</a> </li>
+        <li><a href="javascript:;">原谅我就是这样的女生 - 戴佩妮</a></li>
+        <li> <a href="javascript:;">猜不透 - 丁当</a></li>
+        <li><a href="javascript:;">自导自演 - 周杰伦</a></li>
+        <li><a href="javascript:;">浪漫窝 - 弦子</a></li>
+        <li><a href="javascript:;">流年 - 王菲</a></li>
+    </ul>
+</body>
+</html>
+<script>
+    var oDiv = document.getElementById("odiv");
+    var oUl = document.getElementsByTagName("ul")[0];
+    function fun(a,b){
+        if(window.getComputedStyle){
+            return window.getComputedStyle(a,null)[b];
+        }else{
+            return a.currentStyle[b];
+        }
+    }
+
+    oDiv.onclick=function(){
+        // var flang = true;
+        // if(oUl.style.display=="block"){
+        //     oUl.style.display="none";
+        //     flang=false;
+        // }else{
+        //     oUl.style.display="block";
+        //     flang=true;
+        // }
+        if(fun(oUl,"display") == "block"){
+            oUl.style.display="none";
+            oDiv.style.background="url(img/ico.gif) no-repeat 93%  -10px";
+        }else{
+            oUl.style.display="block";
+            oDiv.style.background="url(img/ico.gif) no-repeat 93%  18px";
+        }
+    }
+
+
+</script>

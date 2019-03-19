@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #btn {
+            width: 170px;
+            height: 35px;
+            position: absolute;
+            top: 50px;
+            left: 50%;
+            margin-left: -150px;
+            font-size: 17px;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="button" value="点击发送短信" id="btn">
+</body>
+
+</html>
+<script>
+    var oBtn = document.getElementById("btn");
+    var count = 60;
+    var timer = null;
+    oBtn.onclick = function () {
+        oBtn.disabled = true;
+        oBtn.value = count + "秒后重新发送";
+        timer = setInterval(function () {
+            count--;
+            oBtn.disabled = true;
+            oBtn.value = count + "秒后重新发送";
+            if (count == 0) {
+                count = 60;
+                clearInterval(timer);
+                oBtn.disabled = false;
+                oBtn.value = "点击发送短信";
+            }
+        }, 1000);
+
+    }
+</script>

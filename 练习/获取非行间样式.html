@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <div>123</div>
+</body>
+</html>
+<script>
+    var odiv = document.getElementsByTagName("div")[0];
+    // alert(odiv.style.width);//g获取行内样式
+    // alert(window.getComputedStyle(odiv)["width"]);//获取非行间样式;高级浏览器
+    // alert(odiv.currentStyle["width"]);//获取ie低版本的非行间样式;
+</script>

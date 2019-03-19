@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #tab {
+            width: 350px;
+            margin: 100px auto 0;
+            border: 1px solid black;
+        }
+        #tab ul {
+            margin: 0;
+            padding: 0;
+            background: aqua;
+            list-style-type: none;
+            overflow: hidden;
+        }
+        #tab ul li {
+            float: left;
+            height: 35px;
+            width: 33.3333%;
+            text-align: center;
+            line-height: 35px;
+            color: rebeccapurple;
+            cursor: pointer;
+        }
+        #tab ul li.active {
+            background: rebeccapurple;
+            color: aqua;
+        }
+        #odiv {
+            width: 350px;
+            height: 150px;
+            border: 1px solid black;
+            border-top: 0px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        #odiv p {
+            margin: 0;
+            line-height: 150px;
+            font-size: 30px;
+            color: aqua;
+            background: rebeccapurple;
+            display: none;
+        }
+        #odiv p.octive {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="tab">
+        <ul>
+            <li class="active">第一个</li>
+            <li>第二个</li>
+            <li>第三个</li>
+        </ul>
+    </div>
+    <div id="odiv">
+        <p class="octive">111</p>
+        <p>222</p>
+        <p>333</p>
+    </div>
+</body>
+
+</html>
+<script>
+    var oTab = document.getElementById("tab");
+    var oLi = oTab.getElementsByTagName("li");
+    var oDiv = document.getElementById("odiv");
+    var oP = oDiv.getElementsByTagName("p");
+    // alert(oP[0].className);
+    for (var i = 0; i < oLi.length; i++) {
+        oLi[i].index = i;
+        oLi[i].onclick = function () {
+            for (var i = 0; i < oLi.length; i++) {
+                oLi[i].className = "";
+                oP[i].className = "";
+            }
+            this.className = "active";
+            oP[this.index].className = "octive";
+        }
+    }
+</script>

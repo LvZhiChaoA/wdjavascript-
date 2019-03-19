@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            width: 160px;
+            height: 300px;
+            position: absolute;
+            top: 30%;left: 0;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>
+<script>
+    var oDiv = document.getElementsByTagName("div")[0];
+    var timer = null;
+    timer = setInterval(function(){
+        oDiv.style.display="none";
+    },3000);
+    oDiv.onmousemove=function(){
+        clearInterval(timer);
+    }
+    oDiv.onmouseout=function(){
+        timer = setInterval(function(){
+            oDiv.style.display="none";
+        },3000)
+    }
+</script>
