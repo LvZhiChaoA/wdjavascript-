@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #odiv {
+            width: 500px;
+            height: 300px;
+            border: 1px solid black;
+            margin: 100px auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+
+        #odiv img {
+            width: 100%;
+            height: 100%;
+            display: none;
+        }
+
+        #odiv img.xianshi {
+            display: block;
+        }
+
+        #odiv .btn-left,
+        #odiv .btn-right {
+            position: absolute;
+            font-size: 50px;
+            top: 40%;
+            left: 0;
+            width: 40px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            border: 1px solid black;
+            cursor: pointer;
+        }
+
+        #odiv .btn-left {
+            border-left: 0;
+        }
+
+        #odiv .btn-right {
+            left: 92%;
+            border-right: 0;
+        }
+
+        .xiaoyuandian {
+            width: 500px;
+            overflow: hidden;
+            margin: 23% 35.5%;
+            border: 1px solid black;
+            border-top: 0;
+        }
+
+        .xiaoyuandian ul {
+            margin: 0;
+            padding: 0;
+            margin-left: 35%;
+        }
+
+        .xiaoyuandian ul li {
+            list-style-type: none;
+            width: 20px;
+            height: 20px;
+            float: left;
+            margin: 15px;
+            background: red;
+            border-radius: 50%;
+        }
+
+        .xiaoyuandian ul li.hover {
+            background: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="odiv">
+        <div class="btn-left"><</div>
+        <div class="btn-right">></div>
+        <img class="xianshi" src="img/demo1.jpg" alt="">
+        <img src="img/demo2.jpg" alt="">
+        <img src="img/demo3.jpg" alt="">
+    </div>
+    <div class="xiaoyuandian">
+        <ul>
+            <li class="hover"></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</body>
+
+</html>
+<script>
+    var oDiv = document.getElementById("odiv");
+    var oLeft = oDiv.getElementsByClassName("btn-left")[0];
+    var oright = oDiv.getElementsByClassName("btn-right")[0];
+    var oImg = oDiv.getElementsByTagName("img");
+    var oYd = document.getElementsByClassName("xiaoyuandian")[0];
+    var oLi = oYd.getElementsByTagName("li");
+
+    var index = 0;
+    for (var i = 0; i < oLi.length; i++) {
+        oLi[i].index = i;
+        oLi[i].onmousemove = function () {
+            index=this.index;
+            fun(this.index);
+        }
+    }
+
+    oLeft.onclick = function () {
+        index--;
+        if (index < 0) {
+            index = oImg.length - 1;
+        }
+        fun(index);
+    }
+    oright.onclick = function () {
+        index++;
+        if (index >= oImg.length) {
+            index = 0;
+        }
+        fun(index);
+    }
+
+    function fun(index) {
+        for (var i = 0; i < oImg.length; i++) {
+            oImg[i].className = "";
+            oLi[i].className = "";
+        }
+        oImg[index].className = "xianshi";
+        oLi[index].className = "hover";
+    }
+</script>
